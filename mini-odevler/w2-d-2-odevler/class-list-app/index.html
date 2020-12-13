@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Class List App</title>
+  <link rel="stylesheet" href="/assets/style.css" />
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+  <header>Class List App</header>
+  <div class="container" id="app">
+    <div class="class--list--app">
+      <div class="card">
+        <p>  </p>
+        <ul class="class-list" >
+          <li>
+            <label>
+              <input class="mr-5" type="checkbox" value="background-color:#18dcff" v-model="classBoxes" />
+              <span>Background Color </span>
+           
+            </label>
+          </li>
+          <li>
+            <label>
+              <input class="mr-5" type="checkbox" value="border: 3px solid #ff4d4d" v-model="classBoxes"/>
+              <span>Border</span>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input class="mr-5" type="checkbox" value="border-radius: 25px;" v-model="classBoxes"/>
+              <span>Border Radius</span>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input class="mr-5" type="checkbox" value="color: purple" v-model="classBoxes"/>
+              <span>Color</span>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input class="mr-5" type="checkbox" value="font-weight:bold" v-model="classBoxes"/>
+              <span>Font Bold</span>
+            </label>
+          </li>
+          <li>
+            <label>
+              <input class="mr-5" type="checkbox" value="font-style: italic" v-model="classBoxes"/>
+              <span>Font Italic</span>
+            </label>
+          </li>
+        </ul>
+
+        <textarea rows="5" :style="classBoxes" ></textarea>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>const app = Vue.createApp({
+  data() {
+    return {
+    classBoxes: [
+      "transition: 0.6s;",
+    ],
+    };
+  },
+
+});
+app.mount("#app");
+</script>
+</html>

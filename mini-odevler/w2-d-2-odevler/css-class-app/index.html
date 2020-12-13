@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>CSS Class App</title>
+  <link rel="stylesheet" href="/assets/style.css" />
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+  <header>CSS Class App</header>
+  <div class="container css--class--app" id="app">
+    <div class="card text-center">
+      <ul class="css--palette text-center">
+        <li v-for="i in colorPalette" :class="i.css_class" @click="changeColours(i)"></li>
+
+      </ul>
+      <div class="result-box" :class="changeColor" @click="refreshColors"></div>
+      <br>
+
+    </div>
+
+  </div>
+</body>
+<style>
+  .red-box {
+    background-color: red !important
+  }
+
+  .green-box {
+    background-color: green !important;
+  }
+
+  .blue-box {
+    background-color: blue !important;
+  }
+</style>
+<script>
+  const app = Vue.createApp({
+
+    data() {
+      return {
+        changeColor: "",
+
+        colorPalette: [
+          {
+            id: "red",
+            css_class: "red-box",
+          },
+          {
+            id: "green",
+            css_class: "green-box",
+          },
+          {
+            id: "blue",
+            css_class: "blue-box",
+          }
+        ],
+
+      }
+
+    },
+
+    methods: {
+      changeColours(i) {
+        this.changeColor = i.css_class
+      },
+      refreshColors() {
+        this.changeColor = ""
+      }
+    },
+
+
+
+  }).mount("#app")
+
+
+
+
+
+</script>
+
+</html>

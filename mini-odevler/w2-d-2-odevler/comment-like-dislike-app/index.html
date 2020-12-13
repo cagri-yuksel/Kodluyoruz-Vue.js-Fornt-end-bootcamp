@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Comment Like/Dislike App</title>
+    <link rel="stylesheet" href="/assets/style.css" />
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
+    <header>Comment Like/Dislike App</header>
+    <div class="container" id="app">
+
+      <div class="comment--like--dislike--app"   >
+        <div class="card mb-10 comment--item" v-for="i in commentsArray " >
+          <p>
+            {{i.comments}}
+          </p>
+          <div class="action--button--container text-right mt-10">
+            <button class="btn-sm btn-success" @click="i.likes++" >Beğendim ({{i.likes}})</button>
+            <button class="btn-sm btn-danger" @click="i.dislikes++">Beğenmedim ({{i.dislikes}})</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+const app = Vue.createApp({ 
+
+data(){
+  return{
+    commentsArray:[
+    {comments:   "Lorem ipsum dolor sit amet, ",
+    likes: 2,
+  dislikes: 117,},
+  {comments:   "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint deserunt, Nostrum corporis, quod voluptates quisconsequuntur eveniet beatae dolor aperiam ad.",
+    likes: 18,
+  dislikes: 76,},
+  {comments:   "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint deserunt, tempore accusamus iusto nobis dolore ratione itaque perferendis delectus? Nostrum corporis, quod voluptates quisconsequuntur eveniet beatae dolor aperiam ad.",
+    likes: 160,
+  dislikes: 1,},
+    ],
+  }
+},
+
+
+}).mount("#app")
+
+
+
+  </script>
+</html>

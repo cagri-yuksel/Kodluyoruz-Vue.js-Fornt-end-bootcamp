@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Kurs Planlaması</title>
+  <script src="https://unpkg.com/vue@next"></script>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header>Kurs Planlaması</header>
+  <div class="container" id="app">
+    <div class="course--planner-app--container">
+      <div class="card">
+        <div class="user--action--container">
+          <div class="form-group">
+            <label>Kursun Adı</label>
+            <input type="text" :class="type" v-model.trim="textField" />
+          </div>
+          <button class="btn-primary" @click="addNewCourse">Kurs Ekle</button>
+        </div>
+        <span> {{empty }} </span>
+      </div>
+      <div class="card card-light mt-20">
+        <h3>Aktif Kurslarım</h3>
+        <ul class="list mt-20">
+          <li class="course-item list-item" :class="{'bg-danger' : !i.status, 'bg-success' : i.status, }"
+            v-for="i in todoList">
+            <span>{{i.course}}</span>
+            <input type="checkbox" @click="i.status = !i.status" />
+        </ul>
+      </div>
+      <div class="mt-10">
+        <p class="current" v-if="current.length > 0  "> Tamamlanmamış ({{current.length}}) adet kursunuz var.</p>
+        <p class="done" v-if="done.length > 0  "> Tamamlanmış ({{done.length}}) adet kursunuz var.</p>
+      </div>
+    </div>
+
+  </div>
+</body>
+<style>
+  .current {
+    color: red
+  }
+  .done {
+    color: green;
+  }
+  .empty {
+    border: 1px solid red;
+  }
+</style>
+<script>
+  Vue.createApp({
+
+    data() {
+      return {
+        empty: null,
+        type: null,
+        textField: null,
+        todoList: [],
+      }
+    },
+    computed: {
+      done() {
+        return this.todoList.filter(function (list) {
+          return list.status === true
+        })
+      },
+      current() {
+        return this.todoList.filter(function (list) {
+          return list.status === false
+        })
+      }
+    },
+    methods: {
+      addNewCourse() {
+
+        if (this.textField === null || this.textField.length < 0
+          || this.textField.trim() === "") {
+          this.empty = "Alanı boş bırakamazsınız."
+          this.type = 'empty'
+          setTimeout(() => { this.empty = null , this.type = null }, 5000)
+
+        } else {
+          this.todoList.push({ course: this.textField, status: false })
+          this.textField = null
+          this.type = null
+          this.empty = null
+
+        }
+
+      }
+    },
+
+
+
+
+
+
+
+  }).mount("#app");
+
+
+
+</script>
+
+</html>
