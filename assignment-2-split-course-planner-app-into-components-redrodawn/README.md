@@ -1,19 +1,21 @@
-# vue-comp-test
+# ÖDEV
 
-## Project setup
-```
-npm install
-```
+Kurs planlayıcısı ödevinizde yapmış olduğunuz yapıyı. Component'lere ayırınız.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Eğer diğer ödevi yapmadıysanız ilk olarak onu yapmanızı tavsiye ederim.
+https://classroom.github.com/classrooms/75532335-kodluyoruz-vue/assignments/vue-bootcamp-assignment-1-course-planner
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Uygulamanızda dikkat etmeniz gerken bölümler.
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Daha önceki yaptığınız uygulamadaki tüm işlemlerin eksiksiz bir şekilde çalıştığından emin olunuz.
+
+# ASSIGNMENT
+
+The structure you have made in your course planner assignment. Separate into components.
+
+If you haven't done the other task, I recommend that you do it first.
+https://classroom.github.com/classrooms/75532335-kodluyoruz-vue/assignments/vue-bootcamp-assignment-1-course-planner
+
+## The sections you need to pay attention to in your application.
+
+Make sure that all the processes in the previous application work completely.
