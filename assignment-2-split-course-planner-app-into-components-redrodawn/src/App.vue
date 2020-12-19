@@ -27,6 +27,7 @@
 
 <script>
 import courseListCounter from "./components/course-list-counter";
+
 import Card from "./components/card";
 export default {
   components: {

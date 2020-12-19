@@ -1,13 +1,6 @@
 <template>
   <div>
-    <div
-      :style="{ textAlign: 'center', color: 'teal !important' }"
-      v-show="todoList.length == 0"
-      class="card card-light mt-20"
-    >
-      <h3>Kurs Listen Tertemiz🧹</h3>
-      <p>Yukarıda ki kutuyu kullanarak bir kurs giriniz.</p>
-    </div>
+    <courseListEmpty v-show="todoList.length == 0" :todo="todoList" />
     <div v-show="todoList.length > 0" class="card card-light mt-20">
       <h3>Aktif Kurslarım</h3>
       <ul class="list mt-20">
@@ -26,8 +19,12 @@
 </template>
 
 <script>
+import courseListEmpty from "./course-list-empty";
 export default {
   props: ["todoList"],
+  components: {
+    courseListEmpty,
+  },
   data() {
     return {};
   },
